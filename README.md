@@ -16,7 +16,7 @@ The model (`model.py`) is a tied-weight bottleneck network `x_hat = ReLU(W^T W x
 
 ![Bottleneck feature geometry across pairwise correlation rho](results/superposition_correlation_figure.png)
 
-| `rho` | Seeds | Within-pair `cos` (mean +/- SD) | Between-pair `|cos|` (mean +/- SD) | Represented features `||W_i||_2 > 0.5` (mean +/- SD) | Final MSE (`x 10^-3`, mean +/- SD) |
+| `rho` | Seeds | Within-pair `cos` (mean +/- SD) | Between-pair `\|cos\|` (mean +/- SD) | Represented features `\|\|W_i\|\|_2 > 0.5` (mean +/- SD) | Final MSE (`x 10^-3`, mean +/- SD) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | `0.00` | 10 | `-0.081 +/- 0.063` | `0.366 +/- 0.002` | `19.9 +/- 0.32` | `4.59 +/- 0.48` |
 | `0.20` | 10 | `+0.376 +/- 0.037` | `0.353 +/- 0.008` | `19.9 +/- 0.32` | `4.66 +/- 0.28` |
@@ -63,4 +63,3 @@ This setup is based on the tied-weight ReLU toy model and the correlated-feature
 Elhage, N., Hume, T., Olsson, C., Schiefer, N., Henighan, T., Kravec, S., Hatfield-Dodds, Z., Lasenby, R., Drain, D., Chen, C., Grosse, R., McCandlish, S., Kaplan, J., Amodei, D., Wattenberg, M., & Olah, C. (2022). *Toy Models of Superposition*. Transformer Circuits Thread. https://transformer-circuits.pub/2022/toy_model/index.html
 
 In that section, the authors show qualitatively that when bottleneck capacity is tight, correlated feature pairs can collapse onto a shared principal component with weight lengths near `1/sqrt(2)` instead of staying in separate directions; here I sweep `rho` quantitatively from `0.0` to `0.95` while holding marginal sparsity fixed at `p = 0.05` across 10 seeds per condition.
-
